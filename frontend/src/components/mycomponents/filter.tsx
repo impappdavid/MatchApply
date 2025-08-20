@@ -53,7 +53,7 @@ export default function Filter() {
                             <AccordionContent className="flex flex-col gap-4  text-balance">
                                 <div className="w-full p-2 flex flex-col gap-2">
                                     <Input className="border-black rounded-none" placeholder="Title, Skill or Company" />
-                                    <div className="grid grid-cols-3 gap-2">
+                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                                         <MultiSelect
                                             options={frameworks}
                                             selected={selectedFrameworks}
@@ -75,7 +75,7 @@ export default function Filter() {
                                             selected={selectedRemote}
                                             onChange={setSelectedRemote}
                                             placeholder="Remote"
-                                            className="rounded-none bg-transparent border-black"
+                                            className="rounded-none bg-transparent border-black col-span-2 md:col-span-1"
                                         />
                                     </div>
                                     <div className="grid grid-cols-2 gap-2">

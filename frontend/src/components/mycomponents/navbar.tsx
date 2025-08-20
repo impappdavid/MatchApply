@@ -22,7 +22,7 @@ export default function Navbar() {
             <div className="w-full flex justify-center">
                 <div className="w-4xl p-2 fixed border-x border-b flex justify-between items-center">
                     <div className="w-20 ">
-                        <div className="flex items-center justify-center h-8 w-8 bg-black text-white">MA</div>
+                        <img src="/logo.png" className="flex items-center justify-center h-8 w-8 " />
                     </div>
                     <div className="flex gap-3">
                         <a href="" className="hover:underline">Jobs</a>
