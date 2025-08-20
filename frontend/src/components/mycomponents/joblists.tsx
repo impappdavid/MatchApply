@@ -20,8 +20,8 @@ export default function Joblists() {
                                     <div className="text-sm text-zinc-600">LightDash is making an AI company to reach a lot of users.</div>
                                 </div>
                             </div>
-                            <div className=" h-full">
-                                <ArrowUpRight className="h-4 w-4 text-zinc-600" />
+                            <div className=" h-full text-xs text-zinc-600">
+                                1w ago
                             </div>
                         </div>
                         <div className="flex justify-between pl-14">

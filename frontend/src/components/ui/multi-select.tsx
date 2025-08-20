@@ -53,9 +53,9 @@ export function MultiSelect({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className={cn("w-full justify-between max-h-10 h-full", className)}
+          className={cn("w-full justify-between h-10  ", className)}
         >
-          <div className="flex gap-1 flex-wrap">
+          <div className="flex gap-1 ">
             {selected.length > 0 ? (
               <>
                 {displayedItems.map((item) => {
@@ -64,7 +64,7 @@ export function MultiSelect({
                     <Badge
                       variant="secondary"
                       key={item}
-                      className="mr-1 mb-1"
+                      className="mr-1 py-1"
                       onClick={(e) => {
                         e.preventDefault()
                         e.stopPropagation()
@@ -95,7 +95,7 @@ export function MultiSelect({
                   )
                 })}
                 {remainingCount > 0 && (
-                  <Badge variant="outline" className="mr-1 mb-1">
+                  <Badge variant="outline" className="mr-1 ">
                     +{remainingCount}
                   </Badge>
                 )}
