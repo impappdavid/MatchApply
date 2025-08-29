@@ -42,7 +42,7 @@ export function MultiSelect({
     }
   }
 
-  const maxDisplayed = 1
+  const maxDisplayed = 2
   const displayedItems = selected.slice(0, maxDisplayed)
   const remainingCount = selected.length - maxDisplayed
 

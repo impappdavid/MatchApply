@@ -1,4 +1,4 @@
-import { ArrowUpRight, Bookmark, ChartNoAxesColumn, Dot, Heart, MousePointerClick } from "lucide-react";
+import { ArrowUpRight, Book, Bookmark, BookMarked, ChartNoAxesColumn, Dot, Heart, MousePointerClick } from "lucide-react";
 import { Button } from "../ui/button";
 import {
     Tooltip,
@@ -30,11 +30,27 @@ const jobs = [
         location: "USA",
         desc: "We are looking for a Senior Software Engineer with 5+ years of experience in backend development.",
         jobType: "Full-time",
-        salary: "$100,000 - $120,000 per year",
+        salary: "$50",
         reqSkills: ["React", "Swift"],
         indrusty: "Information Technology",
         experienceLevel: "Junior",
         remote: "Hybrid",
+        url: "",
+        date: "2w ago",
+        bookmarked: false,
+    },
+    {
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png",
+        title: "Senior Data analyzer",
+        company: "Google",
+        location: "USA",
+        desc: "We are looking for a Senior Software Engineer with 5+ years of experience in backend development.",
+        jobType: "Part-time",
+        salary: "",
+        reqSkills: ["React", "Swift"],
+        indrusty: "Information Technology",
+        experienceLevel: "Junior",
+        remote: "On-site",
         url: "",
         date: "2w ago",
         bookmarked: false,
@@ -45,62 +61,49 @@ export default function Joblists() {
     return (
         <>
             <div className="w-full flex justify-center">
-                <div className="max-w-4xl w-full flex flex-col">
+                <div className="max-w-6xl w-full grid grid-cols-3">
                     {jobs.map((job, index) => (
-                        <div key={index} className="flex flex-col border-x border-b p-2">
-                            <div className="w-full  flex justify-between items-center">
-                                <div className="flex gap-2 items-center">
-                                    <div className="h-full">
-                                        <img src={job.img} className="h-12 w-12 bg-black " />
-                                    </div>
-                                    <div className="flex flex-col justify-center">
-                                        <div className="flex items-center">
-                                            <div className="font-medium text-lg">{job.title}</div>
-                                            <Dot className="w-5 h-5 text-zinc-600" />
-                                            <div className="text-sm text-zinc-800">{job.company}</div>
-                                        </div>
-                                        <div className="flex gap-1 items-center pt-1">
-                                            {job.reqSkills.map((skill, index) => (
-                                                <div key={index} className="px-2 py-1 bg-black text-white text-xs">{skill}</div>
-                                            ))}
-
-                                        </div>
-
-                                        <div className="text-sm text-zinc-600 pt-1">{job.desc}</div>
-                                    </div>
-                                </div>
-                                <div className=" h-full flex gap-2 text-xs text-zinc-600">
-                                <div className="text-xs h-fit font-medium px-2 py-1 border border-black">{job.experienceLevel}</div>
-                                        
-                                    <Tooltip>
-                                        <TooltipTrigger asChild>
-                                            {job.bookmarked ? (
-                                                <div className="flex gap-1 h-fit text-zinc-600 group  cursor-pointer p-1">
-                                                    <Bookmark className="h-4 w-4 fill-amber-500 text-amber-500 transition-all duration-200" />
-                                                </div>
-                                            ) : (
-                                                <div className="flex gap-1 h-fit text-zinc-600 group  cursor-pointer p-1">
-                                                    <Bookmark className="h-4 w-4 group-hover:fill-amber-500 group-hover:text-amber-500 transition-all duration-200" />
-                                                </div>
-                                            )}
-                                        </TooltipTrigger>
-                                        <TooltipContent>
-                                            {job.bookmarked ? (
-                                                <p>Bookmarked</p>
-                                            ) : (
-                                                <p>Bookmark</p>
-                                            )}
-                                        </TooltipContent>
-                                    </Tooltip>
+                        <div key={index} className="flex flex-col gap-2 border-x border-b p-2">
+                            <div className="flex justify-between px-1">
+                                <img src={job.img} alt="" className="w-8 h-8" />
+                                <div className="text-emerald-600 group h-fit cursor-pointer transition-all duration-200">
+                                    <Bookmark className="w-4 h-4 group-hover:fill-emerald-600  transition-all duration-200" />
                                 </div>
                             </div>
-                            <div className="flex justify-between pl-14 items-center">
-                                <div className="flex items-center">
-                                    <div className="px-2 py-1 text-xs bg-emerald-600 text-white h-fit">{job.salary}</div>
-                                    <Dot className="w-5 h-5 text-zinc-600" />
-                                    <div className="text-xs">{job.remote}</div>
+                            <div className="flex flex-col gap-0">
+                                <div className="text-sm text-zinc-600 pt-0.5 px-1">{job.company}</div>
+                                <div className="text-lg font-medium px-1">{job.title}</div>
+                                <div className="flex flex-wrap pt-0.5 px-0.5 gap-1">
+                                    {job.reqSkills.map((skill, index) => (
+                                        <div key={index} className="px-2 py-1 bg-zinc-300/60 w-fit text-xs rounded-md text-zinc-800">{skill}</div>
+                                    ))}
                                 </div>
-                                <Button className="rounded-none h-8">Apply</Button>
+                                <div className="flex gap-1 pt-1.5 px-0.5">
+                                    <div className="px-2 py-1 border border-zinc-400/50 w-fit text-xs rounded-md text-zinc-600">{job.jobType}</div>
+                                    <div className="px-2 py-1 border border-zinc-400/50 w-fit text-xs rounded-md text-zinc-600">{job.remote}</div>
+                                </div>
+
+                                <div className="text-xs px-1 text-zinc-700 pt-2">{job.desc}</div>
+                                <div className="flex justify-between px-1 pt-2">
+                                    {job.salary.length > 0 ? (
+                                        <>
+                                            {job.salary.length > 5 ? (
+                                                <div className="font-medium">
+                                                    {job.salary}
+                                                </div>
+                                            ) : (
+                                                <div className="flex items-center">
+                                                    <div className="font-medium">{job.salary}</div>
+                                                    <div className="text-xs text-zinc-600">/hr</div>
+                                                </div>
+                                            )}
+
+                                        </>
+                                    ) : (
+                                        <div className="text-xs flex items-center text-zinc-600">Not Found</div>
+                                    )}
+                                    <Button className="h-7 rounded-none cursor-pointer transition-all duration-200 ">Apply</Button>
+                                </div>
                             </div>
                         </div>
                     ))}

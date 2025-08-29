@@ -158,7 +158,7 @@ export default function CoverLetters() {
     return (
         <>
             <div className="w-full flex justify-center">
-                <div className="max-w-4xl border-x w-full border-b">
+                <div className="max-w-6xl border-x w-full border-b">
                     <Accordion
                         type="single"
                         collapsible
@@ -231,12 +231,7 @@ export default function CoverLetters() {
                                         </div>
                                     )}
 
-                                    {/* Save Button */}
-                                    <div className="w-full">
-                                        <Button className="rounded-none cursor-pointer w-full">
-                                            Save All Changes
-                                        </Button>
-                                    </div>
+                                    
                                 </div>
                             </AccordionContent>
                         </AccordionItem>

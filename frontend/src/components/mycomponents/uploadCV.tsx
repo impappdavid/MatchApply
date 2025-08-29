@@ -12,7 +12,7 @@ export default function UploadCV() {
     return (
         <>
             <div className="w-full  flex justify-center">
-                <div className="max-w-4xl border-x  w-full border-b">
+                <div className="max-w-6xl border-x  w-full border-b">
                     <Accordion
                         type="single"
                         collapsible

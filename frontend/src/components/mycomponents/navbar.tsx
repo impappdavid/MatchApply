@@ -15,14 +15,16 @@ export default function Navbar() {
     return (
         <>
             <div className="w-full flex justify-center">
-                <div className="w-4xl p-2 fixed border-x border-b flex justify-between items-center backdrop-blur-2xl">
+                <div className="w-6xl p-2 fixed border-x border-b flex justify-between items-center backdrop-blur-2xl">
                     <div className="w-20 ">
-                        <img src="/logo.png" className="flex items-center justify-center h-8 w-8 cursor-pointer" onClick={() => navigate("/")} />
+                        <div className="bg-black w-fit group">
+                            <img src="/logo.png" className="flex items-center justify-center h-8 w-8 cursor-pointer group-hover:rotate-90 transition-all duration-300" onClick={() => navigate("/")} />
+                        </div>
                     </div>
                     <div className="flex gap-3">
                         <Link to={"/"} className="hover:underline">Jobs</Link>
-                        <a href="" className="hover:underline">For You</a>
-                        <a href="" className="hover:underline">AI Apply</a>
+                        <Link to={"/foryou"} className="hover:underline">For You</Link>
+                        <Link to={"/aiaply"} className="hover:underline">Apply</Link>
                     </div>
                     <div className="w-20 flex justify-end">
                         <DropdownMenu>
